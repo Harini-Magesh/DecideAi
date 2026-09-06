@@ -1,99 +1,294 @@
-# 🧠 DecideAI — AI-Powered Decision-Making & Future Reflection Platform
+# 🧠 DecideAI — AI-Powered Decision Intelligence Platform
 
 ## Project Overview
 
-DecideAI is an AI-powered personal decision-making and reflection platform designed to help users think through complex decisions, evaluate alternatives, document their reasoning, and revisit important decisions later with new context.
+DecideAI is an AI-powered decision intelligence and reflection platform designed to help users think through important decisions, preserve their original reasoning, and revisit those decisions later with the benefit of real-world experience.
 
-The application uses Google's Gemini API to support multi-turn conversations and transform user discussions into structured Decision Snapshots. These snapshots capture the user's original thinking, options considered, key priorities, trade-offs, concerns, insights, and suggested next steps.
+The platform uses Google Gemini for multi-turn AI conversations, Firebase Authentication for secure user access, Cloud Firestore for isolated data storage, Google Cloud Secret Manager for secure secret management, and Google Cloud Run for cloud-native deployment.
 
-A key original enhancement of the platform is the **Future Me Check-in** feature. Users can schedule a future review of a decision and later return to reflect on what actually happened. Gemini uses the original decision context together with the user's new reflection to help them identify what changed, where their assumptions were correct or incorrect, and what they learned.
+Unlike a traditional AI journal that only records what a user says, DecideAI helps users:
 
-The platform demonstrates:
-
-- Secure AI-powered multi-turn conversations
-- Firebase Authentication
-- User-isolated Firestore data storage
-- Gemini API integration
-- Decision Snapshot generation
-- Future decision reflection
-- Scheduled Future Me Check-ins
-- Context-aware AI analysis
-- Secure secret management
-- Cloud-native deployment using Google Cloud Run
+- Explore complex decisions
+- Compare multiple options
+- Identify trade-offs
+- Generate structured Decision Snapshots
+- Preserve their original assumptions
+- Schedule future check-ins
+- Reflect on what changed over time
+- Receive context-aware AI insights
 
 ---
 
-# 🚀 Challenge Context
+# 🌟 Original Feature Enhancement
 
-This project was built for the **Ideathon Challenge: Build a Secure Personal Gemini Journal**.
+## Future Me Check-in & Context-Aware Reflection
 
-The challenge required participants to build an authenticated AI application with:
+The primary original enhancement developed for DecideAI is the **Future Me Check-in system**.
 
-- User Authentication
-- Multi-turn Gemini AI interaction
-- Isolated user data storage
-- Secure API key management
-- At least one original feature enhancement
+A traditional AI journal captures a user's thoughts at one point in time.
 
-DecideAI expands the concept of a traditional AI journal into an **AI-assisted decision intelligence and reflection system**.
+DecideAI creates a bridge between the user's past assumptions and their future reality.
 
-Instead of simply recording conversations, DecideAI helps users:
-
-1. Explore complex decisions
-2. Compare possible options
-3. Capture their reasoning
-4. Identify important trade-offs
-5. Save structured decision snapshots
-6. Schedule future reflection sessions
-7. Re-evaluate decisions using new real-world context
-
----
-
-# ✨ Key Features
-
-## 🤖 Multi-Turn Gemini Conversations
-
-Users can have natural multi-turn conversations with Gemini about:
-
-- Career decisions
-- Education choices
-- Personal goals
-- Productivity challenges
-- Study strategies
-- Professional opportunities
-- Complex personal decisions
-
-Gemini maintains conversational context and helps users explore different perspectives and trade-offs.
-
----
-
-# 📸 Decision Snapshot
-
-Users can convert an important conversation into a structured **Decision Snapshot**.
-
-The snapshot automatically organizes the discussion into meaningful sections.
-
-### Snapshot includes:
-
-- What the user was thinking
-- Options considered
-- Key factors and priorities
-- Main trade-offs
-- Biggest concern
-- Key insight
-- Suggested next step
-
-This allows users to preserve not only the final decision, but also the reasoning behind it.
+```text
+┌─────────────────────────┐
+│       PAST YOU          │
+│ Original Conversation   │
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│    Decision Snapshot    │
+│ Original Thoughts and   │
+│ Assumptions Preserved   │
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│ Future Check-in Planned │
+└────────────┬────────────┘
+             │
+             │ Time Passes
+             ▼
+┌─────────────────────────┐
+│     PRESENT YOU         │
+│ Real-World Experience   │
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│   User Reflection       │
+│ "What actually changed?"│
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│ Gemini Context Analysis │
+│ Past + Present Context  │
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│   FUTURE INSIGHT        │
+│ Improved Understanding  │
+│ and Decision-Making     │
+└─────────────────────────┘
+```
 
 ---
 
-# 🔮 Future Me Check-in
+# 🏗️ System Architecture
 
-The **Future Me Check-in** is the primary original feature enhancement of DecideAI.
+DecideAI uses a secure cloud-native architecture built with Google Cloud, Firebase, and Gemini.
 
-After creating a Decision Snapshot, users can schedule a future date to revisit the decision.
+```text
+                         ┌───────────────────┐
+                         │     DecideAI      │
+                         │      Web App      │
+                         └─────────┬─────────┘
+                                   │
+                                   ▼
+                     ┌─────────────────────────┐
+                     │ Firebase Authentication │
+                     │  User Identity & Access │
+                     └────────────┬────────────┘
+                                  │
+                                  ▼
+                     ┌─────────────────────────┐
+                     │   Application Backend   │
+                     │   Google Cloud Run      │
+                     └────────────┬────────────┘
+                                  │
+                 ┌────────────────┼────────────────┐
+                 │                │                │
+                 ▼                ▼                ▼
+       ┌─────────────────┐ ┌────────────────┐ ┌─────────────────┐
+       │ Google Secret   │ │   Gemini API   │ │ Cloud Firestore │
+       │    Manager      │ │   AI Engine    │ │ User Data Store │
+       └─────────────────┘ └───────┬────────┘ └────────┬────────┘
+                                   │                   │
+                                   ▼                   │
+                         ┌──────────────────┐          │
+                         │ Multi-Turn AI    │          │
+                         │ Conversation     │          │
+                         └────────┬─────────┘          │
+                                  │                    │
+                   ┌──────────────┼──────────────┐     │
+                   │              │              │     │
+                   ▼              ▼              ▼     ▼
+          ┌──────────────┐ ┌──────────────┐ ┌─────────────────┐
+          │   Decision   │ │  Future Me   │ │ User-Isolated   │
+          │   Snapshots  │ │   Check-In   │ │ Conversations   │
+          └──────────────┘ └──────────────┘ └─────────────────┘
+```
 
-### Example check-in periods:
+---
+
+# 🔄 Application Workflow
+
+## Step 1 — User Authentication
+
+The user signs in securely through Firebase Authentication.
+
+```text
+┌──────────────┐
+│     User     │
+└──────┬───────┘
+       │
+       ▼
+┌─────────────────────────┐
+│ Firebase Authentication │
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│ Authenticated Session   │
+│ User Identity Verified  │
+└─────────────────────────┘
+```
+
+Once authenticated, the user's identity is used to control access to their private conversations, Decision Snapshots, and Future Me Check-ins.
+
+---
+
+## Step 2 — Multi-Turn AI Conversation
+
+The user starts a conversation with DecideAI and discusses a decision or problem.
+
+### Example
+
+> "Should I pursue a Master's degree abroad or try to get a job directly?"
+
+Gemini helps the user explore:
+
+- Possible options
+- Advantages
+- Disadvantages
+- Financial considerations
+- Career implications
+- Immigration considerations
+- Personal priorities
+
+### Conversation Flow
+
+```text
+┌──────────────────┐
+│   User Question  │
+└────────┬─────────┘
+         │
+         ▼
+┌────────────────────────┐
+│    DecideAI Platform   │
+└────────┬───────────────┘
+         │
+         ▼
+┌────────────────────────┐
+│     Gemini AI Engine   │
+└────────┬───────────────┘
+         │
+         ▼
+┌────────────────────────┐
+│ AI Response + Context  │
+└────────┬───────────────┘
+         │
+         ▼
+┌────────────────────────┐
+│    User Follow-Up      │
+└────────┬───────────────┘
+         │
+         └───────────────► Multi-Turn Conversation
+```
+
+The conversation maintains context to support deeper decision analysis.
+
+---
+
+## Step 3 — Decision Snapshot Generation
+
+The conversation can be transformed into a structured **Decision Snapshot**.
+
+```text
+┌────────────────────────────┐
+│ Original AI Conversation   │
+└─────────────┬──────────────┘
+              │
+              ▼
+┌────────────────────────────┐
+│    What You Were Thinking  │
+└─────────────┬──────────────┘
+              │
+              ▼
+┌────────────────────────────┐
+│    Options Considered      │
+└─────────────┬──────────────┘
+              │
+              ▼
+┌────────────────────────────┐
+│ Key Factors & Priorities   │
+└─────────────┬──────────────┘
+              │
+              ▼
+┌────────────────────────────┐
+│      Main Trade-Offs       │
+└─────────────┬──────────────┘
+              │
+              ▼
+┌────────────────────────────┐
+│      Biggest Concern       │
+└─────────────┬──────────────┘
+              │
+              ▼
+┌────────────────────────────┐
+│        Key Insight         │
+└─────────────┬──────────────┘
+              │
+              ▼
+┌────────────────────────────┐
+│     Suggested Next Step    │
+└─────────────┬──────────────┘
+              │
+              ▼
+┌────────────────────────────┐
+│ Secure Firestore Storage   │
+└────────────────────────────┘
+```
+
+Each snapshot preserves the user's original decision context for future reflection.
+
+---
+
+## Step 4 — Future Me Check-in Scheduling
+
+The user selects when they want to revisit a previous decision.
+
+```text
+┌──────────────────────┐
+│   Decision Snapshot  │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│ Select Review Date   │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│ Save Future Check-In │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│ Store in Firestore   │
+└──────────┬───────────┘
+           │
+           │
+           │ Time Passes
+           ▼
+┌──────────────────────┐
+│ Review Date Arrives  │
+└──────────────────────┘
+```
+
+Available scheduling options include:
 
 - 1 Week
 - 1 Month
@@ -101,265 +296,194 @@ After creating a Decision Snapshot, users can schedule a future date to revisit 
 - 6 Months
 - Custom Date
 
-When the selected review date arrives, the user can return to the original decision and begin a reflection conversation.
+---
 
-Gemini is provided with:
+## Step 5 — Future Reflection
 
-- The original decision context
-- The options originally considered
-- The user's priorities
-- Previous concerns
-- The original suggested next step
-- The user's current reflection
+When the user revisits the decision, DecideAI retrieves the original context.
 
-This enables a context-aware comparison between:
+Gemini asks a reflection question based on the user's earlier Decision Snapshot.
 
+### Example
 
-Past Thinking
-      ↓
-Real-World Experience
-      ↓
-New Reflection
-      ↓
-AI-Assisted Re-evaluation
-      ↓
-New Insight
+> "A previous version of you wanted to revisit this decision. What has changed since then?"
 
-🧠 Context-Aware Reflection
+```text
+┌───────────────────────────┐
+│ Future Check-In Opens     │
+└────────────┬──────────────┘
+             │
+             ▼
+┌───────────────────────────┐
+│ Retrieve Original         │
+│ Decision Snapshot        │
+└────────────┬──────────────┘
+             │
+             ▼
+┌───────────────────────────┐
+│ Gemini Reviews Original   │
+│ Context and Assumptions   │
+└────────────┬──────────────┘
+             │
+             ▼
+┌───────────────────────────┐
+│ Reflection Question       │
+└────────────┬──────────────┘
+             │
+             ▼
+┌───────────────────────────┐
+│ User Describes What       │
+│ Actually Happened         │
+└───────────────────────────┘
+```
 
-Unlike a standard reminder system, the Future Me Check-in uses Gemini to analyze how the user's situation has changed.
+---
 
-For example, the AI can identify:
+## Step 6 — AI-Assisted Re-evaluation
 
-Which assumptions were correct
-Which concerns became irrelevant
-Whether the original strategy worked
-Where the actual problem occurred
-New factors discovered through experience
-What the user should consider going forward
+Gemini compares the user's past and present perspectives.
 
-This creates a continuous reflection loop rather than a one-time AI conversation.
+```text
+┌────────────────────────┐
+│   Original Decision    │
+└────────────┬───────────┘
+             │
+┌────────────▼───────────┐
+│ Original Assumptions   │
+└────────────┬───────────┘
+             │
+             │
+┌────────────▼───────────┐
+│ New Real-World         │
+│ Experience             │
+└────────────┬───────────┘
+             │
+             │
+┌────────────▼───────────┐
+│ Current User Reflection│
+└────────────┬───────────┘
+             │
+             ▼
+┌────────────────────────┐
+│ Gemini Context Analysis│
+└────────────┬───────────┘
+             │
+             ▼
+┌────────────────────────┐
+│ New Context-Aware      │
+│ Insight                │
+└────────────────────────┘
+```
 
-🔐 User Authentication
+This process helps users understand how their thinking and circumstances evolved over time.
 
-DecideAI uses Firebase Authentication to provide secure user access.
+---
 
-Users must authenticate before accessing their personal conversations and decision data.
-
-The authentication system ensures that application data is associated with the authenticated user.
-
-🗂️ User-Isolated Firestore Storage
+# 📁 User-Isolated Firestore Storage
 
 All user conversations and Decision Snapshots are stored using Firebase Cloud Firestore.
 
-Data is structured to ensure user-level isolation.
+The data structure is designed to maintain user-level isolation.
 
-Example architecture:
+## Firestore Architecture
 
+```text
 Firestore
 │
-├── users
-│   │
-│   ├── user_1
-│   │   ├── conversations
-│   │   ├── snapshots
-│   │   └── future_checkins
-│   │
-│   └── user_2
-│       ├── conversations
-│       ├── snapshots
-│       └── future_checkins
+└── users
+    │
+    ├── {userId_1}
+    │   │
+    │   ├── conversations
+    │   │   │
+    │   │   └── {conversationId}
+    │   │
+    │   ├── snapshots
+    │   │   │
+    │   │   └── {snapshotId}
+    │   │
+    │   └── future_checkins
+    │       │
+    │       └── {checkInId}
+    │
+    └── {userId_2}
+        │
+        ├── conversations
+        │   └── {conversationId}
+        │
+        ├── snapshots
+        │   └── {snapshotId}
+        │
+        └── future_checkins
+            └── {checkInId}
+```
 
-Each user can access only their own:
+Each authenticated user can access only their own documents.
 
-Conversations
-Decision Snapshots
-Reflection notes
-Future Me Check-ins
-🔑 Secure Secret Management
+---
 
-Gemini API credentials are not hardcoded into the application source code.
+# 🔥 Firestore Security
 
-Sensitive configuration is managed securely using:
+Firestore security rules are configured to prevent cross-user data access.
 
-Google Cloud Secret Manager
-Environment variables
-.env configuration for local development
+```text
+┌──────────────────────┐
+│ Authenticated User A │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│ Can Access Only      │
+│ User A Data          │
+└──────────────────────┘
 
-The repository includes an .env.example file instead of exposing real credentials.
 
-Example:
+┌──────────────────────┐
+│ Authenticated User B │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│ Can Access Only      │
+│ User B Data          │
+└──────────────────────┘
+```
 
-GEMINI_API_KEY=your_api_key_here
-FIREBASE_PROJECT_ID=your_project_id
+This prevents unauthorized users from accessing another user's:
 
-Actual production secrets are retrieved securely during deployment.
+- Conversations
+- Decision Snapshots
+- Reflection Notes
+- Future Check-ins
 
-☁️ Cloud-Native Deployment
+The complete Firestore security rules are included in:
 
-The application is designed for deployment using Google Cloud services.
+```text
+firestore.rules
+```
 
-The production architecture includes:
+---
 
-Google Cloud Run
-Google Cloud Secret Manager
-Firebase Authentication
-Cloud Firestore
-Gemini API
-🏗️ System Architecture
-                    ┌──────────────────────┐
-                    │       User           │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │    DecideAI Web App  │
-                    │      Frontend        │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │ Firebase Authentication│
-                    │   User Verification   │
-                    └──────────┬───────────┘
-                               │
-                  ┌────────────┴────────────┐
-                  │                         │
-                  ▼                         ▼
-        ┌──────────────────┐      ┌──────────────────┐
-        │ Gemini AI API    │      │ Cloud Firestore  │
-        │ Multi-Turn AI    │      │ User-Isolated    │
-        │ Conversations    │      │ Data Storage     │
-        └────────┬─────────┘      └────────┬─────────┘
-                 │                         │
-                 └────────────┬────────────┘
-                              │
-                              ▼
-                  ┌────────────────────────┐
-                  │   Decision Snapshot    │
-                  │   Generation Engine    │
-                  └────────────┬───────────┘
-                               │
-                               ▼
-                  ┌────────────────────────┐
-                  │  Future Me Check-in    │
-                  │  Scheduling System     │
-                  └────────────┬───────────┘
-                               │
-                               ▼
-                  ┌────────────────────────┐
-                  │ Future Reflection with │
-                  │ Original AI Context    │
-                  └────────────────────────┘
-🔄 Application Workflow
-Step 1 — User Authentication
+# 🛠️ Technology Stack
 
-The user signs in through Firebase Authentication.
+| Layer | Technology |
+|---|---|
+| Frontend | React / TypeScript |
+| Backend | Node.js |
+| AI | Google Gemini API |
+| Authentication | Firebase Authentication |
+| Database | Cloud Firestore |
+| Secret Management | Google Cloud Secret Manager |
+| Deployment | Google Cloud Run |
+| Hosting Architecture | Google Cloud |
+| Version Control | Git & GitHub |
+| Development Environment | Google AI Studio |
 
-User
-  ↓
-Firebase Authentication
-  ↓
-Authenticated Session
-Step 2 — Multi-Turn AI Conversation
+---
 
-The user starts a conversation with DecideAI.
+# 📁 Project Structure
 
-Example:
-
-"Should I pursue a Master's degree abroad or try to get a job directly?"
-
-Gemini helps the user explore:
-
-Possible options
-Advantages
-Disadvantages
-Financial considerations
-Career implications
-Immigration considerations
-Personal priorities
-Step 3 — Decision Snapshot Generation
-
-The conversation can be transformed into a structured Decision Snapshot.
-
-Example:
-
-What You Were Thinking
-        ↓
-Options Considered
-        ↓
-Key Factors & Priorities
-        ↓
-Main Trade-Offs
-        ↓
-Biggest Concern
-        ↓
-Key Insight
-        ↓
-Suggested Next Step
-
-The snapshot is stored securely in Firestore.
-
-Step 4 — Future Me Check-in Scheduling
-
-The user selects when they want to revisit the decision.
-
-Decision Snapshot
-        ↓
-Select Review Date
-        ↓
-Save Future Check-in
-        ↓
-Store in Firestore
-        ↓
-Review Date Arrives
-
-Available scheduling options include:
-
-1 Week
-1 Month
-3 Months
-6 Months
-Custom Date
-Step 5 — Future Reflection
-
-When the user revisits the decision, Gemini receives the original context and asks a reflection question.
-
-Example:
-
-"A previous version of you wanted to revisit this decision. What has changed since then?"
-
-The user describes what actually happened.
-
-Step 6 — AI-Assisted Re-evaluation
-
-Gemini compares:
-
-Original Decision
-        +
-Original Assumptions
-        +
-User's New Experience
-        +
-Current Reflection
-        ↓
-New Context-Aware Insight
-
-This helps the user understand how their thinking evolved.
-
-🛠️ Technology Stack
-Layer	Technology
-Frontend	React / TypeScript
-Backend	Node.js
-AI	Google Gemini API
-Authentication	Firebase Authentication
-Database	Cloud Firestore
-Secret Management	Google Cloud Secret Manager
-Deployment	Google Cloud Run
-Hosting Architecture	Google Cloud
-Version Control	Git & GitHub
-Development Environment	Google AI Studio
-📁 Project Structure
+```text
 DecideAI/
 │
 ├── public/
@@ -399,319 +523,348 @@ DecideAI/
 ├── bun.lock
 │
 └── README.md
-🔥 Firestore Security
+```
 
-Firestore security rules are configured to prevent cross-user data access.
+---
 
-Users can only access documents associated with their authenticated identity.
+# 🔐 Secure Secret Management
 
-Conceptually:
+Sensitive API keys and production secrets should never be hardcoded in the application source code.
 
-Authenticated User A
+```text
+┌───────────────┐
+│   Developer   │
+└───────┬───────┘
         │
         ▼
-Can Access
-Only User A Data
+┌─────────────────────┐
+│ Google Cloud Secret │
+│      Manager        │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Cloud Run Service   │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│ Secure Application  │
+│ Configuration       │
+└─────────────────────┘
+```
 
-Authenticated User B
-        │
-        ▼
-Can Access
-Only User B Data
+This prevents sensitive information from being exposed in:
 
-This prevents unauthorized users from accessing another user's:
+- Source code
+- Public GitHub repositories
+- Frontend application bundles
+- Version control history
 
-Conversations
-Snapshots
-Reflection notes
-Future check-ins
+---
 
-The complete Firestore security rules are included in:
+# ⚙️ Local Setup
 
-firestore.rules
-⚙️ Local Setup
-1. Clone the Repository
-git clone https://github.com/YOUR-USERNAME/DecideAI.git
+## 1. Clone the Repository
+
+```bash
+git clone <your-repository-url>
 cd DecideAI
-2. Install Dependencies
+```
+
+---
+
+## 2. Install Dependencies
+
+```bash
 npm install
+```
 
-or, if using Bun:
+Or, if using Bun:
 
+```bash
 bun install
-3. Configure Environment Variables
+```
 
-Create a .env file based on .env.example.
+---
 
+## 3. Configure Environment Variables
+
+Create a `.env` file based on `.env.example`.
+
+```bash
 cp .env.example .env
+```
 
-Configure the required Firebase and Google Cloud environment variables.
+Example configuration:
 
-Example:
-
+```env
 GEMINI_API_KEY=your_gemini_api_key
 FIREBASE_PROJECT_ID=your_firebase_project_id
+```
 
-Never commit your actual .env file to GitHub.
+Never commit actual API keys or sensitive environment variables to GitHub.
 
-4. Configure Firebase
+---
+
+## 4. Configure Firebase
 
 Create or configure a Firebase project with:
 
-Firebase Authentication
-Cloud Firestore
+- Firebase Authentication
+- Cloud Firestore
 
 Update the Firebase configuration for your local environment.
 
-5. Configure Firestore Rules
+---
+
+## 5. Configure Firestore Rules
 
 Deploy the Firestore security rules:
 
+```bash
 firebase deploy --only firestore:rules
+```
 
-Verify that users cannot access documents belonging to other users.
+Verify that users cannot access documents belonging to another authenticated user.
 
-6. Start the Application
+---
+
+## 6. Start the Application
+
+```bash
 npm run dev
+```
 
-or:
+Or:
 
+```bash
 bun run dev
+```
 
 The application should now be available locally.
 
-☁️ Google Cloud Run Deployment
-Step 1 — Authenticate with Google Cloud
+---
+
+# ☁️ Google Cloud Run Deployment
+
+## Step 1 — Authenticate with Google Cloud
+
+```bash
 gcloud auth login
-Step 2 — Select Your Project
+```
+
+## Step 2 — Select Your Project
+
+```bash
 gcloud config set project YOUR_PROJECT_ID
-Step 3 — Build and Deploy
+```
 
-Deploy the application to Google Cloud Run.
+## Step 3 — Build and Deploy
 
-Example:
-
+```bash
 gcloud run deploy decideai \
   --source . \
   --region YOUR_REGION \
   --allow-unauthenticated
+```
 
-For this challenge, ensure the required deployment configuration and service labels are applied.
+---
 
-🏷️ Cloud Run Challenge Label
+# 🏷️ Cloud Run Challenge Label
 
-The deployed service must include the required label:
+For the challenge, the deployed Cloud Run service must include the required label:
 
+```text
 dev-tutorial=cloud-run-ai-challenge
+```
 
-Verify the Cloud Run service configuration after deployment.
+Verify the service configuration after deployment.
 
-🔒 Production Secret Management
+---
 
-Production secrets should be stored in Google Cloud Secret Manager.
+# 📊 Key Application Features
 
-Example workflow:
+## Decision Intelligence
 
-Developer
-     ↓
-Secret Manager
-     ↓
-Cloud Run Service
-     ↓
-Secure Environment Variable
-     ↓
-Application
+- Multi-turn AI conversations
+- Option comparison
+- Trade-off analysis
+- Priority identification
+- Structured decision summaries
 
-This prevents sensitive API keys from being directly included in:
-
-Source code
-GitHub repositories
-Frontend application bundles
-📊 Key Application Features
-Decision Intelligence
-Multi-turn AI conversations
-Option comparison
-Trade-off analysis
-Priority identification
-Structured decision summaries
-Decision Snapshots
+## Decision Snapshots
 
 Stores:
 
-Original thinking
-Options considered
-Key factors
-Trade-offs
-Biggest concern
-Key insight
-Suggested next step
-Future Me Check-ins
+- Original thinking
+- Options considered
+- Key factors
+- Trade-offs
+- Biggest concern
+- Key insight
+- Suggested next step
+
+## Future Me Check-ins
 
 Allows users to:
 
-Schedule future reviews
-Select review intervals
-Add custom review dates
-Revisit previous decisions
-Reflect on actual outcomes
-Receive context-aware AI analysis
-🌟 Original Feature Enhancement
-Future Me Check-in & Context-Aware Reflection
+- Schedule future reviews
+- Select review intervals
+- Add custom review dates
+- Revisit previous decisions
+- Reflect on actual outcomes
+- Receive context-aware AI analysis
 
-The original enhancement developed for DecideAI is the Future Me Check-in system.
+---
 
-A typical AI journal saves what a user said.
-
-DecideAI goes further:
-
-PAST
-Original Conversation
-        ↓
-Decision Snapshot
-        ↓
-Future Check-in Scheduled
-        ↓
-PRESENT
-Real-World Experience
-        ↓
-User Reflection
-        ↓
-Gemini Context Analysis
-        ↓
-FUTURE
-Improved Decision-Making
-
-The feature creates a bridge between a user's past assumptions and future reality.
-
-This makes the application particularly useful for:
-
-Career decisions
-Education planning
-Productivity improvement
-Personal development
-Goal evaluation
-Long-term decision-making
-📸 Screenshots
-DecideAI Conversation
-
-Decision Snapshot
-
-Future Me Check-in Scheduling
-
-Context-Aware Future Reflection
-
-AI-Assisted Re-evaluation
-
-🧪 Testing
+# 🧪 Testing
 
 The following functionality was tested:
 
-Firebase Authentication
-User conversation creation
-Multi-turn Gemini responses
-Decision Snapshot generation
-Firestore data storage
-User-level data isolation
-Future Check-in scheduling
-Custom review date selection
-Future reflection conversations
-Context-aware Gemini responses
-Check-in completion workflow
-🔐 Security Considerations
+- Firebase Authentication
+- User conversation creation
+- Multi-turn Gemini responses
+- Decision Snapshot generation
+- Firestore data storage
+- User-level data isolation
+- Future Check-in scheduling
+- Custom review date selection
+- Future reflection conversations
+- Context-aware Gemini responses
+- Check-in completion workflow
+
+---
+
+# 🔐 Security Considerations
 
 The application follows production-oriented security practices.
 
-API Key Protection
-No production API keys are hardcoded
-Sensitive configuration is excluded from Git
-Secrets are managed securely
-Authentication
-Users must authenticate before accessing private data
-Firebase Authentication manages user identity
-Firestore Isolation
-User data is protected through Firestore security rules
-Cross-user access is restricted
-Production Deployment
-Application is deployed through Google Cloud infrastructure
-Secrets are separated from application source code
-🎯 Learning Outcomes
+## API Key Protection
+
+- No production API keys are hardcoded
+- Sensitive configuration is excluded from Git
+- Secrets are managed securely
+
+## Authentication
+
+- Users must authenticate before accessing private data
+- Firebase Authentication manages user identity
+
+## Firestore Isolation
+
+- User data is protected through Firestore security rules
+- Cross-user access is restricted
+
+## Production Deployment
+
+- Application is designed for Google Cloud infrastructure
+- Secrets are separated from application source code
+
+---
+
+# 🎯 Learning Outcomes
 
 This project demonstrates practical understanding of:
 
-Generative AI application development
-Gemini API integration
-Multi-turn conversational systems
-Firebase Authentication
-Firestore data modeling
-Database security rules
-User data isolation
-Secret management
-Cloud-native deployment
-Google Cloud Run
-Context-aware AI workflows
-Production-oriented AI application design
-🔮 Future Improvements
-Notifications
+- Generative AI application development
+- Gemini API integration
+- Multi-turn conversational systems
+- Firebase Authentication
+- Firestore data modeling
+- Database security rules
+- User data isolation
+- Secret management
+- Cloud-native deployment
+- Google Cloud Run
+- Context-aware AI workflows
+- Production-oriented AI application design
+
+---
+
+# 🔮 Future Improvements
+
+## Notifications
 
 Future versions could include:
 
-Email reminders
-Push notifications
-Calendar integration
-Decision Timeline
+- Email reminders
+- Push notifications
+- Calendar integration
 
-Users could view their decisions across time:
+## Decision Timeline
 
-Past Decision
-      ↓
-Reflection
-      ↓
-Outcome
-      ↓
-Lesson Learned
-Decision Analytics
+Users could visualize their decisions over time:
 
-Potential analytics include:
+```text
+┌─────────────────┐
+│  Past Decision  │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│   Reflection    │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│     Outcome     │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  Lesson Learned │
+└─────────────────┘
+```
 
-Most common decision categories
-Changes in user priorities
-Decision confidence over time
-Reflection patterns
-Advanced AI Insights
+## Decision Analytics
+
+Potential analytics could include:
+
+- Most common decision categories
+- Changes in user priorities
+- Decision confidence over time
+- Reflection patterns
+
+## Advanced AI Insights
 
 Future AI capabilities could include:
 
-Decision pattern analysis
-Contradiction detection
-Assumption tracking
-Long-term personal insight summaries
-👩‍💻 Author
+- Decision pattern analysis
+- Contradiction detection
+- Assumption tracking
+- Long-term personal insight summaries
 
-Harini M
+---
+
+# 📸 Screenshots
+
+## DecideAI Conversation
+
+![DecideAI Conversation](screenshots/conversation.png)
+
+## Decision Snapshot
+
+![Decision Snapshot](screenshots/decision-snapshot.png)
+
+## Future Me Check-in
+
+![Future Me Check-in](screenshots/future-checkin.png)
+
+## Context-Aware Future Reflection
+
+![Future Reflection](screenshots/future-reflection.png)
+
+## AI-Assisted Re-evaluation
+
+![AI Re-evaluation](screenshots/reevaluation.png)
+
+---
+
+# 👩‍💻 Author
+
+**Harini M**
 
 AI-Powered Decision Intelligence Project
 
-Built for the Ideathon Challenge:
-
-Build a Secure Personal Gemini Journal
-
-📄 License
-
-This project was created as a hackathon prototype and educational demonstration.
-
-
-## Important: Before putting this on GitHub
-
-You should create a `screenshots` folder and add your actual screenshots. For your project, I recommend these **five screenshots**:
-
-1. **Main AI conversation**
-2. **Decision Snapshot & Review**
-3. **Future Me Check-in scheduling**
-4. **Future Me Reflection Dialogue**
-5. **Gemini's context-aware reflection response**
-
-Your README is especially strong because the architecture and workflow clearly show:
-
-**Firebase Authentication → Gemini conversation → Firestore storage → Decision Snapshot → Future Me Check-in → Context-aware AI reflection**
-
-One caution: update the **exact filenames and commands** in the README if they differ from your actual repository. Since judges may run the deployment instructions, the README should match the real project structure exactly.
+Built for the **Ideathon Challenge: Build a Secure Personal Gemini Journal**
