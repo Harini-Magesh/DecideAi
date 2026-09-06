@@ -839,27 +839,55 @@ Future AI capabilities could include:
 
 # 📸 Screenshots
 
-## DecideAI Conversation
+## Dashboard
 
-![DecideAI Conversation](screenshots/conversation.png)
+![DecideAI Dashboard](screenshots/dashboard.png)
+
+---
+
+## Multi-Turn AI Conversation
+
+![Multi-Turn AI Conversation](screenshots/multi-turn-conversation.png)
+
+---
 
 ## Decision Snapshot
 
+The AI conversation is transformed into a structured Decision Snapshot containing the user's thinking, options, priorities, concerns, insights, and suggested next steps.
+
 ![Decision Snapshot](screenshots/decision-snapshot.png)
 
-## Future Me Check-in
+---
 
-![Future Me Check-in](screenshots/future-checkin.png)
+## Future Me Check-in Scheduling
 
-## Context-Aware Future Reflection
+Users can schedule a future review using preset intervals or a custom date.
+
+![Future Me Check-in Scheduling](screenshots/future-checkin-scheduling.png)
+
+---
+
+## Future Reflection
+
+When the scheduled check-in arrives, DecideAI presents the original context and asks the user to reflect on what has changed.
 
 ![Future Reflection](screenshots/future-reflection.png)
 
-## AI-Assisted Re-evaluation
+---
 
-![AI Re-evaluation](screenshots/reevaluation.png)
+## User Reflection
+
+The user describes their real-world experience and how their original assumptions have changed.
+
+![User Reflection](screenshots/user-reflection.png)
 
 ---
+
+## AI-Assisted Re-evaluation
+
+Gemini compares the original decision context with the user's new experience and generates a context-aware reflection.
+
+![AI-Assisted Re-evaluation](screenshots/ai-assisted-reevaluation.png)
 
 # 👩‍💻 Author
 
